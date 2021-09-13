@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
