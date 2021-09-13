@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ZendeskWordmark
   from '@zendeskgarden/svg-icons/src/26/wordmark-zendesk.svg';
-import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import LeafIcon from '@zendeskgarden/svg-icons/src/12/leaf-stroke.svg';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Row } from '@zendeskgarden/react-grid';
 
