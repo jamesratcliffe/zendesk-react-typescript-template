@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Row } from '@zendeskgarden/react-grid';
 import { Header } from './Typography';
 import useCurrentUser from '../hooks/zendesk/useCurrentUser';
