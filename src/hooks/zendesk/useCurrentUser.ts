@@ -1,5 +1,5 @@
-import { useQuery } from 'react-query';
-import { zendeskClient } from '../../lib/Zendesk';
+import {useQuery} from 'react-query';
+import {zendeskClient} from '../../lib/Zendesk';
 
 /**
  * User object returned by the App API.
@@ -8,15 +8,18 @@ import { zendeskClient } from '../../lib/Zendesk';
  * @property {string} role
  */
 
+interface ZAFUser {
+    name: string,
+    email: string,
+    role: string,
+}
+
 /**
  * Query hook to get the current user info from the App API.
- *
- * @returns {object}
  */
 const useCurrentUser = () => useQuery('currentUser', async () => {
-  /** @type ZAFUser */
-  const { currentUser } = await zendeskClient.get('currentUser');
-  return currentUser;
+    const data = await zendeskClient.get('currentUser');
+    return data.currentUser as ZAFUser;
 });
 
 export default useCurrentUser;
