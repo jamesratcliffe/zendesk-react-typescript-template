@@ -1,0 +1,60 @@
+{
+    "name": "simple-zendesk-garden-react-app",
+    "version": "1.2.0",
+    "description": "A simple Zendesk app template using React and Zendesk Garden",
+    "main": "dist/assets/index.html",
+    "author": "James Ratcliffe",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "watch": "webpack watch --config=webpack.dev.js",
+        "dev": "webpack --config=webpack.dev.js",
+        "prod": "webpack --config=webpack.prod.js",
+        "rm-sourcemaps": "rm -f dist/assets/index.css.map; rm -f dist/assets/index.js.map",
+        "serve": "zcli apps:server dist",
+        "bump": "bash scripts/bump_all.sh",
+        "package": "yarn prod && zcli apps:package dist",
+        "create": "yarn prod && zcli apps:create dist",
+        "upload": "yarn prod && zcli apps:update dist"
+    },
+    "dependencies": {
+        "@zendeskgarden/css-bedrock": "^8.0.1",
+        "@zendeskgarden/react-accordions": "^8.38.0",
+        "@zendeskgarden/react-buttons": "^8.28.0",
+        "@zendeskgarden/react-forms": "^8.28.0",
+        "@zendeskgarden/react-grid": "^8.28.0",
+        "@zendeskgarden/react-loaders": "^8.28.0",
+        "@zendeskgarden/react-modals": "^8.29.1",
+        "@zendeskgarden/react-notifications": "^8.28.0",
+        "@zendeskgarden/react-theming": "^8.1.0",
+        "@zendeskgarden/react-typography": "^8.28.0",
+        "@zendeskgarden/svg-icons": "^6.26.0",
+        "prop-types": "^15.6.1",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
+        "react-is": "^16.8.0",
+        "react-query": "^3.5.11",
+        "react-use": "^15.3.4",
+        "styled-components": "^4.2.0 || ^5.0.0",
+        "use-async-effect": "^2.2.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.5",
+        "@babel/preset-env": "^7.14.5",
+        "@babel/preset-react": "^7.14.5",
+        "@svgr/webpack": "^5.5.0",
+        "babel-loader": "^8.2.2",
+        "copy-webpack-plugin": "^9.0.0",
+        "css-loader": "^5.2.6",
+        "html-webpack-plugin": "^5.3.1",
+        "mini-css-extract-plugin": "^1.6.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.7.2",
+        "webpack-merge": "^5.8.0"
+    },
+    "browserslist": [
+        "last 1 Chrome versions",
+        "last 1 Firefox versions"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Example App",
+    "short_description": "Simple React app template",
+    "long_description": "A simple Zendesk app template using React and Zendesk Garden",
+    "installation_instructions": "Click the install button"
+  }
+}

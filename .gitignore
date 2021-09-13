@@ -1,0 +1,8 @@
+.cache
+node_modules
+dist/assets/
+tmp
+zcli.apps.config.json
+.idea/workspace.xml
+.idea/dictionaries
+.idea
