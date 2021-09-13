@@ -17,7 +17,7 @@ interface RestOrgResponse {
  * (Some org data isn't available from the ZAF)
  */
 const useOrganizationInfo = () => useQuery('organization', async () => {
-    const ZAFData = await zendeskClient.get('organization.id');
+    const ZAFData = (await zendeskClient.get('organization.id')) as {'organization.id': number};
     const {organization} = (await externalRequest({
         url: `/api/v2/organizations/${ZAFData['organization.id']}`,
         type: 'GET',

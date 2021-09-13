@@ -2,11 +2,12 @@ import { getAppSettings } from './Zendesk';
 
 /**
  * ZAF and app config data from ZAF.
- *
- * @type {object}
  */
+interface ConfigData {
+  [key: string]: any,
+}
 
-let configData = {};
+let configData: ConfigData = {};
 
 export let initialized = false;
 
@@ -24,12 +25,8 @@ export async function init() {
 /**
  * Get a config value or all values asynchronously,
  * making sure the config is loaded from ZAF.
- *
- * @param {string} [key]
- *
- * @returns {*}
  */
-export const configAsync = async (key = undefined) => {
+export const configAsync = async (key: string = undefined): Promise<any> => {
   if (!initialized) {
     await init();
   }

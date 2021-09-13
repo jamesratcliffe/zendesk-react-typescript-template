@@ -14,7 +14,7 @@ import {zendeskClient} from '../../lib/Zendesk';
  * @param {boolean|"always"} refetch Shorthand for useQuery's refetch options
  * @return {object}
  */
-const useZAFGet = (paths: string | Array<string>, refetch: boolean | "always" = false): object => useQuery(paths, async () => {
+const useZAFGet = (paths: string | string[], refetch: boolean | "always" = false): object => useQuery(paths, async () => {
     return await zendeskClient.get(paths);
 }, {
     refetchOnMount: refetch,

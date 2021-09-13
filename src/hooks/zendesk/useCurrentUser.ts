@@ -18,8 +18,8 @@ interface ZAFUser {
  * Query hook to get the current user info from the App API.
  */
 const useCurrentUser = () => useQuery('currentUser', async () => {
-    const data = await zendeskClient.get('currentUser');
-    return data.currentUser as ZAFUser;
+    const {currentUser} = (await zendeskClient.get('currentUser')) as {currentUser: ZAFUser};
+    return currentUser;
 });
 
 export default useCurrentUser;

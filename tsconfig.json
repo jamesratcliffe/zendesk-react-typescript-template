@@ -2,6 +2,10 @@
     "compilerOptions": {
         "outDir": "dist",
         "module": "es6",
+        "lib": [
+            "dom",
+            "es2021",
+        ],
         "target": "es5",
         "jsx": "react",
         "sourceMap": true,
@@ -9,5 +13,7 @@
         "allowJs": true,
         "moduleResolution": "node"
     },
-    "include": ["src"]
+    "include": [
+        "src",
+    ]
 }
