@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   plugins: [
     new CopyPlugin({
       patterns: [
-        {from: 'assets', to: ''}, // static assets
+        { from: 'assets', to: '' }, // static assets
       ],
     }),
     new HtmlWebpackPlugin({
@@ -24,13 +24,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.tsx?$/,
         include: path.resolve(__dirname, 'src'),
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
+          loader: 'ts-loader',
+        },
+      },
+      {
+        test: /\.js?$/,
+        include: path.resolve(__dirname, 'src'),
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
       {
@@ -42,6 +47,9 @@ module.exports = {
         use: ['@svgr/webpack'],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
 };
 
