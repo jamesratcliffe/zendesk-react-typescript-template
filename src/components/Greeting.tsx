@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Row } from '@zendeskgarden/react-grid';
 import { Header } from './Typography';
-import useCurrentUser from '../hooks/zendesk/useCurrentUser';
+import {useCurrentUser} from "@zendesk/sell-zaf-app-toolbox";
 
 export const Greeting = () => {
-  const { isSuccess: userIsLoaded, data: currentUser } = useCurrentUser();
+  const user = useCurrentUser();
 
   return (
-    userIsLoaded && (
+    user && (
         <Row>
-          <Header tag="h1">Hi, {currentUser.name}</Header>
+          <Header tag="h1">Hi, {user.name}</Header>
         </Row>
     )
   )

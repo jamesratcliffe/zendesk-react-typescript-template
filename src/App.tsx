@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Grid } from '@zendeskgarden/react-grid';
+import {useMemo} from 'react';
+import {ThemeProvider} from '@zendeskgarden/react-theming';
+import {Grid} from '@zendeskgarden/react-grid';
 import Theme from './components/Theme';
 import '@zendeskgarden/css-bedrock';
 import useDynamicAppHeight from './hooks/zendesk/useDynamicAppHeight';
-import { Greeting } from './components/Greeting';
-import GardenDemo from './components/ComponentDemo';
+import {Greeting} from './components/Greeting';
+import GardenDemo from './components/GardenDemo';
+import {Client, ZAFClientContextProvider} from "@zendesk/sell-zaf-app-toolbox";
 
 /*
 Little example Zendesk app with React and Zendesk Garden.
@@ -18,36 +19,29 @@ We're able to use an SVG file as a React component by installing the
 @svgr/parcel-plugin-svgr package.
  */
 
-/**
- * We need to create a client for React Query to provide to other components
- * @type {QueryClient}
- */
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-      staleTime: 60000,
-    },
-  },
-});
+
+declare let ZAFClient: {
+    init: () => Client;
+};
 
 const App = () => {
-  const appHeightRef = useDynamicAppHeight();
+    const client = useMemo(() => ZAFClient.init(), []);
+    const appHeightRef = useDynamicAppHeight();
 
-  return (
-      <QueryClientProvider
-          client={queryClient}> {/* Provide the react-query client to the app */}
-        <ThemeProvider theme={Theme}> {/* Using an optional custom theme */}
-          <div className="main"
-               ref={appHeightRef}> {/* This div will change height dynamically to fit its content */}
-            <Grid>
-              <Greeting/>
-              <GardenDemo/>
-            </Grid>
-          </div>
-        </ThemeProvider>
-      </QueryClientProvider>
-  );
+    return (
+        <ZAFClientContextProvider value={client}>
+            {/* Provide the Zendesk theme */}
+            <ThemeProvider theme={Theme}>
+                {/* This div will change height dynamically to fit its content */}
+                <div className="main" ref={appHeightRef}>
+                    <Grid>
+                        <Greeting />
+                        <GardenDemo />
+                    </Grid>
+                </div>
+            </ThemeProvider>
+        </ZAFClientContextProvider>
+    );
 };
 
 export default App;
