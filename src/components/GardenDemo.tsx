@@ -5,8 +5,8 @@ import * as React from "react";
 import {Grid, Row} from "@zendeskgarden/react-grid";
 import {Greeting} from "./Greeting";
 
-export const GardenDemo = () => (
-    <Grid>
+export const GardenDemo = () => {
+    return <Grid>
         <Greeting />
         <Row justifyContent="between">
             <ZendeskWordmark color="green" />
@@ -18,4 +18,4 @@ export const GardenDemo = () => (
             </Button>
         </Row>
     </Grid>
-);
+};

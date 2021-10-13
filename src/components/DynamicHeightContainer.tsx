@@ -1,5 +1,5 @@
 import * as React from "react";
-import useDynamicAppHeight from "../hooks/zendesk/useDynamicAppHeight";
+import useDynamicAppHeight from "../hooks/useDynamicAppHeight";
 
 export const DynamicHeightContainer: React.FC = ({children}) => {
     const appHeightRef = useDynamicAppHeight();
