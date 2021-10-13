@@ -7,7 +7,7 @@ import '@zendeskgarden/css-bedrock';
 import useDynamicAppHeight from './hooks/zendesk/useDynamicAppHeight';
 import {Greeting} from './components/Greeting';
 import GardenDemo from './components/GardenDemo';
-import {Client, ZAFClientContextProvider} from "@zendesk/sell-zaf-app-toolbox";
+import {Client, UserProvider, ZAFClientContextProvider} from "@zendesk/sell-zaf-app-toolbox";
 
 /*
 Little example Zendesk app with React and Zendesk Garden.
@@ -30,16 +30,18 @@ const App = () => {
 
     return (
         <ZAFClientContextProvider value={client}>
-            {/* Provide the Zendesk theme */}
-            <ThemeProvider theme={Theme}>
-                {/* This div will change height dynamically to fit its content */}
-                <div className="main" ref={appHeightRef}>
-                    <Grid>
-                        <Greeting />
-                        <GardenDemo />
-                    </Grid>
-                </div>
-            </ThemeProvider>
+            <UserProvider>
+                {/* Provide the Zendesk theme */}
+                <ThemeProvider theme={Theme}>
+                    {/* This div will change height dynamically to fit its content */}
+                    <div className="main" ref={appHeightRef}>
+                        <Grid>
+                            <Greeting />
+                            <GardenDemo />
+                        </Grid>
+                    </div>
+                </ThemeProvider>
+            </UserProvider>
         </ZAFClientContextProvider>
     );
 };
