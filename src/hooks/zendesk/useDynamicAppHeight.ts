@@ -1,7 +1,5 @@
 import useMeasure from 'react-use/lib/useMeasure';
-import { useEffect } from 'react';
-import { resizeSidebarApp } from '../../lib/Zendesk';
-import {useClientHeight} from "../../../../support-zaf-app-toolbox";
+import {useClientHeight} from "@zendesk/sell-zaf-app-toolbox";
 
 /**
  * Hook to dynamically the app height based on the size of a component.
