@@ -1,6 +1,5 @@
 import useMeasure from 'react-use/lib/useMeasure';
-import { useEffect } from 'react';
-import { resizeSidebarApp } from '../../lib/Zendesk';
+import {useClientHeight} from "@zendesk/sell-zaf-app-toolbox";
 
 /**
  * Hook to dynamically the app height based on the size of a component.
@@ -13,10 +12,7 @@ import { resizeSidebarApp } from '../../lib/Zendesk';
 const useDynamicAppHeight = () => {
   const [appRef, { height }] = useMeasure();
 
-  useEffect(() => {
-    // noinspection JSIgnoredPromiseFromCall
-    resizeSidebarApp(`${height}px`);
-  }, [height]);
+  useClientHeight(height);
 
   return appRef;
 };

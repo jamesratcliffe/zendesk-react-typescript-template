@@ -18,6 +18,7 @@
         "upload": "yarn prod && zcli apps:update dist"
     },
     "dependencies": {
+        "@zendesk/sell-zaf-app-toolbox": "LightspeedServices/support-zaf-app-toolbox#ZEN-512-CREATE-SLACK-APP",
         "@zendeskgarden/css-bedrock": "^8.0.1",
         "@zendeskgarden/react-accordions": "^8.38.0",
         "@zendeskgarden/react-buttons": "^8.28.0",
